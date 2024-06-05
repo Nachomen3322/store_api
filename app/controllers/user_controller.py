@@ -4,7 +4,7 @@ from flask import Blueprint, jsonify, request
 from flask_jwt_extended import create_access_token
 from werkzeug.security import check_password_hash
 
-from models.user_model import User
+from app.models.user_model import User
 
 user_bp = Blueprint("user", __name__)
 

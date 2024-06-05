@@ -1,7 +1,7 @@
 from flask import Blueprint, jsonify, request
 
 # agregas el nombre del proyecto (app), aveces hay que
-from models.product_model import Product
+from app.models.product_model import Product
 from utils.decorators import jwt_required, roles_required
 from views.product_view import render_product_detail, render_product_list
 

@@ -1,5 +1,5 @@
 import pytest
-from models.user_model import User
+from app.models.user_model import User
 
 
 @pytest.fixture
@@ -35,7 +35,7 @@ def test_login_user(test_client, new_user):
 def test_login_invalid_user(test_client, new_user):
     # Intentar iniciar sesión sin registrar al usuario
     login_credentials = {
-        "username": new_user["username"],
+        "username": "nousername",
         "password": new_user["password"],
     }
     response = test_client.post("/api/login", json=login_credentials)
@@ -45,10 +45,7 @@ def test_login_invalid_user(test_client, new_user):
 
 def test_login_wrong_password(test_client, new_user):
     # Intentar iniciar sesión con una contraseña incorrecta
-    login_credentials = {
-        "username": new_user["username"], 
-        "password": new_user["wrongpassword"],
-    }
+    login_credentials = {"username": new_user["username"], "password": "wrongpassword"}
     response = test_client.post("/api/login", json=login_credentials)
     assert response.status_code == 401
     assert response.json["error"] == "Credenciales inválidas"
