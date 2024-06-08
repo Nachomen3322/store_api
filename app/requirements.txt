@@ -1,7 +1,7 @@
 flask
 flask-sqlalchemy
 Flask-Login
-flask_jwt_extended
+flask-jwt-extended
 flask-swagger-ui
 pytest
 pytest-flask
