@@ -1,8 +1,7 @@
-from database import db
+from app.database import db
 
-
-class Product(db.Model):
-    __tablename__ = "products"
+class Producto(db.Model):
+    __tablename__ = "productos"
 
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(100), nullable=False)
@@ -22,21 +21,22 @@ class Product(db.Model):
 
     @staticmethod
     def get_all():
-        return Product.query.all()
+        return Producto.query.all()
+
 
     @staticmethod
     def get_by_id(id):
-        return Product.query.get(id)
+        return Producto.query.get(id)
 
     def update(self, name=None, description=None, price=None, stock=None):
         if name is not None:
-            self.marca = name
+            self.name = name
         if description is not None:
-            self.peso = description
+            self.description = description
         if price is not None:
-            self.sabor = price
+            self.price = price
         if stock is not None:
-            self.origen = stock
+            self.stock = stock
         db.session.commit()
 
     def delete(self):

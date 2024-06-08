@@ -5,7 +5,7 @@
         "version": "1.0.0"
     },
     "paths": {
-        "/api/products": {
+        "/api/productos": {
             "get": {
                 "summary": "Obtiene la lista de todos los productos",
                 "security": [
@@ -21,7 +21,7 @@
                                 "schema": {
                                     "type": "array",
                                     "items": {
-                                        "$ref": "#/components/schemas/Product"
+                                        "$ref": "#/components/schemas/Producto"
                                     }
                                 }
                             }
@@ -40,7 +40,7 @@
                     "content": {
                         "application/json": {
                             "schema": {
-                                "$ref": "#/components/schemas/Product"
+                                "$ref": "#/components/schemas/Producto"
                             }
                         }
                     }
@@ -51,7 +51,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/Product"
+                                    "$ref": "#/components/schemas/Producto"
                                 }
                             }
                         }
@@ -59,7 +59,7 @@
                 }
             }
         },
-        "/api/products/{id}": {
+        "/api/productos/{id}": {
             "get": {
                 "summary": "Obtiene un producto específico por su ID",
                 "security": [
@@ -83,7 +83,10 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/Product"
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Producto"
+                                    }
                                 }
                             }
                         }
@@ -114,7 +117,7 @@
                     "content": {
                         "application/json": {
                             "schema": {
-                                "$ref": "#/components/schemas/Product"
+                                "$ref": "#/components/schemas/Producto"
                             }
                         }
                     }
@@ -125,7 +128,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/Product"
+                                    "$ref": "#/components/schemas/Producto"
                                 }
                             }
                         }
@@ -229,7 +232,7 @@
             }
         },
         "schemas": {
-            "Product": {
+            "Producto": {
                 "type": "object",
                 "properties": {
                     "id": {

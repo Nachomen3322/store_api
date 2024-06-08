@@ -15,14 +15,12 @@ def test_register_user(test_client, new_user):
 
 def test_register_duplicate_user(test_client, new_user):
 
-    # Intentar registrar el mismo usuario de nuevo
     response = test_client.post("/api/register", json=new_user)
     assert response.status_code == 400
     assert response.json["error"] == "El nombre de usuario ya está en uso"
 
 
 def test_login_user(test_client, new_user):
-    # Ahora intentar iniciar sesión
     login_credentials = {
         "username": new_user["username"],
         "password": new_user["password"],
@@ -33,7 +31,6 @@ def test_login_user(test_client, new_user):
 
 
 def test_login_invalid_user(test_client, new_user):
-    # Intentar iniciar sesión sin registrar al usuario
     login_credentials = {
         "username": "nousername",
         "password": new_user["password"],
@@ -44,7 +41,7 @@ def test_login_invalid_user(test_client, new_user):
 
 
 def test_login_wrong_password(test_client, new_user):
-    # Intentar iniciar sesión con una contraseña incorrecta
+
     login_credentials = {"username": new_user["username"], "password": "wrongpassword"}
     response = test_client.post("/api/login", json=login_credentials)
     assert response.status_code == 401
