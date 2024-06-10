@@ -14,10 +14,10 @@ SWAGGER_URL = "/api/docs"
 API_URL = "/static/swagger.json"
 
 
-
-swagger_ui_blueprint = get_swaggerui_blueprint(SWAGGER_URL, API_URL, config={"app_name": "Tienda Online  API"})
+swagger_ui_blueprint = get_swaggerui_blueprint(
+    SWAGGER_URL, API_URL, config={"app_name": "Tienda Online  API"}
+)
 app.register_blueprint(swagger_ui_blueprint, url_prefix=SWAGGER_URL)
-
 
 
 app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///productos.db"
@@ -35,3 +35,6 @@ with app.app_context():
 
 if __name__ == "__main__":
     app.run(debug=True)
+
+if __name__ == "main":
+    app.run(host="0.0.0.0", port=5000, debug=True)
