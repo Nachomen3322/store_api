@@ -5,4 +5,3 @@ Flask-JWT-Extended
 flask-swagger-ui
 pytest
 pytest-flask
-gunicorn --worker-tmp-dir /dev/shm app.run:app
